@@ -21,9 +21,13 @@ const displayTemples = (temples) => {
 
 /* async getTemples Function using fetch()*/
 const getTemples = async () => {
-    const response = await fetch("https://byui-cse.github.io/cse121b-ww-course/resources/temples.json");
-    const data = await response.json();
-    doStuff(data);
+    try {
+      const response = await fetch("https://byui-cse.github.io/cse121b-ww-course/resources/temples.json");
+      const data = await response.json();
+      doStuff(data);
+    } catch (error) {
+      console.error('Error fetching or processing data:', error);
+    }
 };
 function doStuff(data) {
     templeList = data;
@@ -40,21 +44,24 @@ function reset() {
 function filterTemples(temples) {
     reset();
     let filter = document.querySelector('#filtered').value;
+    console.log('Selected filter:', filter);
     switch(filter) {
-        case'utah':
+        case 'utah':
           let utahTemples = temples.filter(temple => temple.location.includes('Utah'));
           displayTemples(utahTemples);
-          console.log(utahTemples)
+          console.log(utahTemples);
           break;
-        case'notutah':
+        case 'notutah':
           let notutahTemples = temples.filter(temple => !temple.location.includes('Utah'));
           displayTemples(notutahTemples);
+          console.log(notutahTemples);
           break;
-        case'older':
-          let olderTemples = temples.filter(temple => new Date(temple.dedicated < new Date(1950, 0, 1)));
+        case 'older':
+          let olderTemples = temples.filter(temple => new Date(temple.dedicated) < new Date(1950, 0, 1));
           displayTemples(olderTemples);
+          console.log(olderTemples);
           break;
-        case'all':
+        case 'all':
           default:
             displayTemples(temples);
             break;      
@@ -62,8 +69,8 @@ function filterTemples(temples) {
     }
 };
 
-/* Event Listener */
-
-document.querySelector("#filtered").addEventListener("change", () => {filterTemples(templeList)});
-
 getTemples();
+/* Event Listener */
+console.log('Adding event listener');
+document.querySelector('#filtered').addEventListener("change", () => {filterTemples(templeList)});
+
