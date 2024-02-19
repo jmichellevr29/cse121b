@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project | Harry Potter Sorting Characters</title>
+    <link rel="stylesheet" href="styles/project.css">
+</head>
+<body>
+
+    <nav>
+        
+        <a href="index.html">Home</a>
+        <a href="w01-task.html">W1 Task</a>
+        <a href="w03-task.html">W3 Task</a>
+        <a href="w04-task.html">W4 Task</a>
+        <a href="w05-task.html" class="active">W5 Task</a>
+        <a href="project-task.html">Project</a>
+        
+    </nav>
+
+    <main>
+
+        <h1>Harry Potter Sorting Characters</h1>
+        <p id="info1">The Harry Potter world, created by J.K. Rowling, is a magical realm filled with wonder, adventure, and the eternal struggle between good and evil. 
+            Hogwarts School of Witchcraft and Wizardry, along with iconic characters like Harry, Hermione, and Ron, has captured the hearts of millions worldwide. 
+            Through its rich storytelling and imaginative universe, Harry Potter has become a cultural phenomenon, inspiring generations to believe in the power of friendship, courage, and the magic that resides within us all.</p>
+        <p id="info">Welcome! Here you will find information about Harry Potter Characters and sort them.</p> 
+
+        <select id="filtered" title="Choose a data filter.">
+            <option value="" disabled selected>Filter Characters by House</option>
+            <option value="gryffindor">Gryffindor</option>
+            <option value="slytherin">Slytherin</option>
+            <option value="ravenclaw">Ravenclaw</option>
+            <option value="hufflepuff">Hufflepuff</option>
+            <option value="all">No Filter</option>
+        </select>
+
+        <div id="characters">
+        </div>
+
+
+    </main>
+
+    <footer>
+       <p>&copy;<span id="year"></span> | Project - Harry Potter Sorting Characters | CSE 121b</p>
+    </footer>
+
+    <script>
+        document.getElementById("year").innerHTML = new Date().getFullYear();
+    </script>
+    <script src="scripts/project.js"></script>
+
+
+    
+</body>
+</html>

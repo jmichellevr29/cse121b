@@ -19,6 +19,7 @@ const displayTemples = (temples) => {
     })
 };
 
+
 /* async getTemples Function using fetch()*/
 const getTemples = async () => {
     try {
@@ -72,5 +73,5 @@ function filterTemples(temples) {
 getTemples();
 /* Event Listener */
 console.log('Adding event listener');
-document.querySelector('#filtered').addEventListener("change", () => {filterTemples(templeList)});
+document.querySelector('#filtered').addEventListener("change", () => { filterTemples(templeList) });
 
